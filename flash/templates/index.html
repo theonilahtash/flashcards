@@ -1,0 +1,35 @@
+
+{% extends 'base.html'%} {% load bootstrap4 %} {% load static %} {% block content %} {{block.super}}
+
+<div class="container-fluid">
+    <div class="page-header">
+        <h1>The flashcards site</h1>
+    </div>
+
+    <div class="panel">
+        <div class="jumbotron">
+            {% if cards %} {% for card in cards %}
+            <div class="row">
+                <div class="col-md-4 "></div>
+
+                    <div class="card " style="text-align: center;padding:30px;margin:30px;color:chocolate">
+                    <div class="thumbnail">
+                        <a class="text-center" href="{{ card_id }}">{{card.User}}</a>
+                        <h1 class="text-center">{{card.subject}}</h1>
+                        <p>{{card.title}}</p>
+                        <p>By: {{card.user}}</p>
+                        <p>{{card.short_notes}}</p>
+                        <p>Posted On: {{card.pub_date}}</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{%extends 'base.html'%} {% block content %}
+<div class="container">
+
+    <div class="row">
+        {% if subject%}
+        <h2>Found {{ subject|length }} of searched term {{message}}</h2>
+        {% else %}
+        <h2> Found 0 subject {{message}}</h2>
+        {% endif %}
+
+    </div>
+
+    <div class="jumbotron" style="opacity:0.7">
+        <div class="row">
+            {% if subject %} {% for subject in subjects %}
+
+            <div class="jumbotron">
+                <p style="font-weight:bolder;text-decoration-line: underline;color:blue">{{subject.title}}</p>
+                <p>{{subject.short_notes.capitalize}}</p>
+            </div>
+            {%endfor%} {%endif%}
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+{%endblock%}
